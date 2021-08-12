@@ -5,6 +5,11 @@ module.exports = function (sequelize) {
 
   Vehicle.init(
     {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+      },
       type: {
         type: DataTypes.STRING,
         allowNull: false,

@@ -5,6 +5,11 @@ module.exports = function (sequelize) {
 
   Driver.init(
     {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+      },
       carLicenseNo: {
         type: DataTypes.STRING,
         allowNull: false,
