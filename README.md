@@ -9,6 +9,10 @@ In this lesson, we will walk through the steps to:
 
 Login to your database session via Terminal to get ready for sending SQL queries.
 
+We will be designing according to what we have produced in previous lesson. Consider the following ERD, we will be creating `Vehicle` and `Driver` models.
+
+<img src="./assets/images/car-park-erd.png" />
+
 ### Part 1 - Setup
 
 Step 1: Change Directory to the root of this git repostiory and run the following commands on terminal.
