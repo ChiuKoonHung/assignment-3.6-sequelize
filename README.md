@@ -1,0 +1,1 @@
+# lesson-3.6-sequelize
