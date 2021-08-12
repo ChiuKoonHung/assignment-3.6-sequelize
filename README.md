@@ -28,7 +28,7 @@ Create a start script in `package.json`.
 ``` js
 "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run start"
+    "start": "node index.js"
 },
 ```
 
@@ -258,3 +258,26 @@ const results = await Vehicle.findAll({ include: Driver });
 
 ### Part 3 - Sending Queries (CRUD)
 
+Creating, updating and deleting example:
+
+`./index.js`
+``` js
+    // Create
+    const newVehicle = await Vehicle.create({carPlateNo:"888AA", type:"Bike"});
+  
+    // Update 
+    newVehicle.type = "Road Bike";
+    await newVehicle.save();
+
+    // Delete 
+    await newVehicle.destroy();
+```
+
+More query examples:
+
+``` js
+
+result = await Vehicle.findAll({attributes:["carPlateNo"]}); // Selecting only "carPlateNo"
+result = await Vehicle.findAll({where:{type:"Truck"}}); // Select records where type = "Truck"
+result = await Vehicle.findAll({order:[["carPlateNo","DESC"]]}); // select records order by carPlateNo in descending order
+```

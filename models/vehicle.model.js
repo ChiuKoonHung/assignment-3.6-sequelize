@@ -16,6 +16,7 @@ module.exports = function (sequelize) {
       },
       driverId:{
           type:DataTypes.INTEGER,
+          allowNull:true,
           field:"driver_id"
       },
       createdAt: {
