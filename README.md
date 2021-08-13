@@ -252,7 +252,7 @@ Add `driverId` attribute to `Vehicle` model.
 ```js
 driverId:{
     type:DataTypes.INTEGER,
-    field:"driver_id"
+    field:"driverId"
 },
 ```
 
