@@ -25,7 +25,7 @@ const Driver = require("./driver.model")(sequelize);
 
 // Create associations
 Vehicle.belongsTo(Driver, {
-    foreignKey:"driver_id"
+    foreignKey:"driverId"
 });
 
 // Exports (remember enhanced object literal)
