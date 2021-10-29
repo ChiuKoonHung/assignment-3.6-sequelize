@@ -1,29 +1,29 @@
 const { DataTypes, Model } = require("sequelize");
 
 module.exports = function (sequelize) {
-  class Vehicle extends Model {}
+  class Parking_histories extends Model {}
 
-  Vehicle.init(
+  Parking_histories.init(
     {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      type: {
+      vehicleId: {
         type: DataTypes.STRING,
         allowNull: false,
-        field: "type",
+        field: "vehicle_id",
       },
-      carPlateNo: {
+      slotNo: {
         type: DataTypes.STRING,
         allowNull: false,
-        field: "car_plate_no",
+        field: "slot_no",
       },
-      driverId:{
+      carParkId:{
           type:DataTypes.INTEGER,
           allowNull:true,
-          field:"driver_id"
+          field:"car_park_id"
       },
       createdAt: {
         type: DataTypes.DATE,
@@ -36,10 +36,10 @@ module.exports = function (sequelize) {
     },
     {
       sequelize,
-      modelName: "Vehicle",
-      tableName: "vehicles",
+      modelName: "Parking_histories",
+      tableName: "parking_histories",
     }
   );
 
-  return Vehicle;
+  return Parking_histories;
 };

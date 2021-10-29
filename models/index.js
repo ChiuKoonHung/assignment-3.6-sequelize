@@ -2,7 +2,7 @@
 const { Sequelize } = require("sequelize");
 
 // DB Connection Configuration
-const sequelize = new Sequelize("lesson_db", "edisonzhuang", "", {
+const sequelize = new Sequelize("lesson_db", "postgres", "password", {
   host: "localhost",
   dialect: "postgres",
 });
@@ -22,10 +22,18 @@ async function testConnection() {
 // Import model(s)
 const Vehicle = require("./vehicle.model")(sequelize);
 const Driver = require("./driver.model")(sequelize);
+const Parking_histories = require("./parking_histories.model")(sequelize);
+const Car_park = require("./car_park.model")(sequelize);
 
 // Create associations
 Vehicle.belongsTo(Driver, {
     foreignKey:"driverId"
+});
+Parking_histories.belongsTo(Vehicle, {
+    foreignKey:"vehicleId"
+});
+Parking_histories.belongsTo(Car_park, {
+    foreignKey:"carParkId"
 });
 
 // Exports (remember enhanced object literal)
@@ -34,4 +42,6 @@ module.exports = {
   testConnection,
   Vehicle,
   Driver,
+  Parking_histories,
+  Car_park,
 };

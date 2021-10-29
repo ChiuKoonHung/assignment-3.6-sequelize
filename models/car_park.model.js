@@ -1,29 +1,24 @@
 const { DataTypes, Model } = require("sequelize");
 
 module.exports = function (sequelize) {
-  class Vehicle extends Model {}
+  class Car_park extends Model {}
 
-  Vehicle.init(
+  Car_park.init(
     {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      type: {
+      address: {
         type: DataTypes.STRING,
         allowNull: false,
-        field: "type",
+        field: "address",
       },
-      carPlateNo: {
+      noOfSlots: {
         type: DataTypes.STRING,
         allowNull: false,
-        field: "car_plate_no",
-      },
-      driverId:{
-          type:DataTypes.INTEGER,
-          allowNull:true,
-          field:"driver_id"
+        field: "no_of_slots",
       },
       createdAt: {
         type: DataTypes.DATE,
@@ -36,10 +31,10 @@ module.exports = function (sequelize) {
     },
     {
       sequelize,
-      modelName: "Vehicle",
-      tableName: "vehicles",
+      modelName: "Car_park",
+      tableName: "car_park",
     }
   );
 
-  return Vehicle;
+  return Car_park;
 };
