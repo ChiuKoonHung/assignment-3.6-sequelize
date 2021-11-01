@@ -2,7 +2,7 @@
 const { Sequelize } = require("sequelize");
 
 // DB Connection Configuration
-const sequelize = new Sequelize("lesson_db", "postgres", "password", {
+const sequelize = new Sequelize("lesson_db", "postgres", "justinchiu123", {
   host: "localhost",
   dialect: "postgres",
 });
@@ -32,7 +32,13 @@ Vehicle.belongsTo(Driver, {
 Parking_histories.belongsTo(Vehicle, {
     foreignKey:"vehicleId"
 });
+Vehicle.hasMany(Parking_histories, {
+    foreignKey:"vehicleId"
+});
 Parking_histories.belongsTo(Car_park, {
+    foreignKey:"carParkId"
+});
+Car_park.hasMany(Parking_histories, {
     foreignKey:"carParkId"
 });
 
